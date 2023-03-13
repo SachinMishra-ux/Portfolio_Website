@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
-import altair as alt
 import plotly.express as px
 from PIL import Image
+import webbrowser
 
 df= pd.read_csv("Marks.csv")
 
@@ -52,31 +52,73 @@ def main():
         st.write('You selected:', option)
         if option == 'Python-Projects':
             p1, p2 = st.columns(2)
-            image = Image.open('/Users/sachinmishra/Desktop/Personal/crimedata/Assets/1.png')
-            image1 = Image.open('/Users/sachinmishra/Desktop/Personal/crimedata/Assets/2.png')
-            p1.image(image1, caption='Youtube Video Downloader')
-            p2.image(image, caption='locdata PYPI package')
+            image3 = Image.open('./Assets/3.png')
+            image2 = Image.open('./Assets/2.png')
+            p1.image(image2, caption='Youtube Video Downloader')
+            p2.image(image3, caption='locdata PYPI package')
             if p1.button('Check-Project'):
-                p1.markdown("https://youtubevideo.streamlit.app/")
-            elif p2.button('Check'):
-                p2.markdown("https://youtubevideo.streamlit.app/")
+                webbrowser.open_new_tab("https://youtubevideo.streamlit.app/")
+            if p2.button('CheckProject'):
+                webbrowser.open_new_tab("https://youtubevideo.streamlit.app/")
 
         if option == 'Machine-Learning-Projects':
-            p3, p4 = st.columns(2)
-            #image2 = Image.open('/Users/sachinmishra/Desktop/Personal/crimedata/Assets/4.png')
-            #image3 = Image.open('/Users/sachinmishra/Desktop/Personal/crimedata/Assets/3.png')
-            #p3.image(image2, caption='Youtube Video Downloader')
-            #p4.image(image3, caption='locdata PYPI package')
-            p3.markdown("[![Imag1](/Users/sachinmishra/Desktop/Personal/crimedata/Assets/4.png)](https://youtubevideo.streamlit.app/)")
-            p4.markdown("[![Image](/Users/sachinmishra/Desktop/Personal/crimedata/Assets/3.png)](https://youtubevideo.streamlit.app/)")
+            p1, p2 = st.columns(2)
+            image4 = Image.open('./Assets/4.png')
+            image1 = Image.open('./Assets/2.png')
+            p1.image(image4, caption='AutoML Webapp')
+            p2.image(image1, caption='Bangalore House Price Prediction')
+            if p1.button('Check-Project'):
+                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
+            if p2.button('CheckProject'):
+                webbrowser.open_new_tab()
 
-
-
+        if option == 'Deep-Learning-Projects':
+            p1, p2 = st.columns(2)
+            image4 = Image.open('./Assets/4.png')
+            image1 = Image.open('./Assets/2.png')
+            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
+            p2.image(image1, caption='Bangalore House Price Prediction')
+            if p1.button('Check-Project'):
+                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
+            if p2.button('CheckProject'):
+                webbrowser.open_new_tab()
         
+        if option == 'Tableau-Projects':
+            p1, p2 = st.columns(2)
+            image4 = Image.open('./Assets/4.png')
+            image1 = Image.open('./Assets/2.png')
+            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
+            p2.image(image1, caption='Bangalore House Price Prediction')
+            if p1.button('Check-Project'):
+                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
+            if p2.button('CheckProject'):
+                webbrowser.open_new_tab()
+        
+        if option == 'Computer-Vision-Projects':
+            p1, p2 = st.columns(2)
+            image4 = Image.open('./Assets/4.png')
+            image1 = Image.open('./Assets/2.png')
+            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
+            p2.image(image1, caption='Bangalore House Price Prediction')
+            if p1.button('Check-Project'):
+                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
+            if p2.button('CheckProject'):
+                webbrowser.open_new_tab()
+        
+        if option == 'NLP-Projects':
+            p1, p2 = st.columns(2)
+            image4 = Image.open('./Assets/4.png')
+            image1 = Image.open('./Assets/2.png')
+            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
+            p2.image(image1, caption='Bangalore House Price Prediction')
+            if p1.button('Check-Project'):
+                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
+            if p2.button('CheckProject'):
+                webbrowser.open_new_tab()
 
 
     elif choice == "About":
-        if st.button('About Me'):
+        if st.button('About'):
             st.title("About Me")
             st.write("Hi, I'm Jane Doe, a data scientist based in San Francisco with over 5 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
             st.write("My expertise includes:")
@@ -95,16 +137,6 @@ def main():
 
         # Add separator
         st.write("---")
-        if st.button('Previous Experience'):
-        # Add previous experience
-            st.write("Previous Experience:")
-            st.write("- Data Scientist, ABC Company (2019 - present): Responsible for developing predictive models to improve customer retention and optimize marketing campaigns.")
-            st.write("- Senior Data Analyst, DEF Corporation (2017 - 2019): Led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
-            st.write("- Data Analyst, GHI Industries (2015 - 2017): Conducted data analysis to support business decisions and improve operational efficiency.")
-
-        # Add separator
-        st.write("---")
-
         # Add skills
         if st.button('Skills'):
             st.write("Skills:")
@@ -117,10 +149,19 @@ def main():
             st.write("- Data visualization: Matplotlib, Seaborn, Altair")
             st.write("- Big data technologies: Hadoop, Spark")
             st.write("- Cloud platforms: AWS, GCP") 
-        
+
         # Add separator
         st.write("---")
-        if st.button('My Education'):
+        if st.button('Experience'):
+        # Add previous experience
+            st.write("Previous Experience:")
+            st.write("- Data Scientist, ABC Company (2019 - present): Responsible for developing predictive models to improve customer retention and optimize marketing campaigns.")
+            st.write("- Senior Data Analyst, DEF Corporation (2017 - 2019): Led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
+            st.write("- Data Analyst, GHI Industries (2015 - 2017): Conducted data analysis to support business decisions and improve operational efficiency.")
+
+        # Add separator
+        st.write("---")
+        if st.button('Education'):
             st.dataframe(df)
             fig = px.line(x=df['Semester'], y=df['CGPI'], color=px.Constant("Line chart"),
                 labels=dict(x="Semesters", y="CGPI", color="Time Period"))
