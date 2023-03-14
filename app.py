@@ -6,8 +6,10 @@ import webbrowser
 import sqlite3
 
 df= pd.read_csv("Marks.csv")
+df1= pd.read_csv('Higher_secondary.csv')
 
 def main():
+
     st.set_page_config(
         page_title="Data Scientist Portfolio",
         page_icon=":bar_chart:",
@@ -21,7 +23,7 @@ def main():
     st.markdown("""
         <style>
             .main {
-                background-color: #f5f5f5;
+                background-color: #cb65f0;
             }
             .sidebar .sidebar-content {
                 background-color: #d3d3d3;
@@ -44,7 +46,6 @@ def main():
         avatar = Image.open('./Assets/final.png')
         portion1.image(avatar, caption="Sachin Mishra, A curious Data Scientist")
         st.write("---")
-        
         form = portion2.form(key='my-form')
         name = form.text_input('Enter your name')
         email = form.text_input('Enter your mail')
@@ -141,9 +142,10 @@ def main():
 
 
     elif choice == "About":
-        if st.button('About'):
+        radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
+        if radio_choice == 'About Me':
             st.title("About Me")
-            st.write("Hi, I'm Jane Doe, a data scientist based in San Francisco with over 5 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
+            st.write("Hi, I'm Sachin Mishra, a curious data scientist based in Bangalore with over 2 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
             st.write("My expertise includes:")
             st.write("- Exploratory data analysis")
             st.write("- Feature engineering")
@@ -153,18 +155,16 @@ def main():
             st.write("- Natural language processing")
             st.write("- Time series analysis")
             st.write("I have experience working with a variety of data types, including structured and unstructured data, and have worked with both small and large datasets.")
-            st.write("I have a track record of delivering impactful projects, such as developing a predictive model to forecast customer churn, creating an NLP model to classify customer support tickets, and building a dashboard to monitor key business metrics.")
-            st.write("In my free time, I enjoy attending data science conferences, reading technical papers, and participating in online coding communities.")
-            st.write("Prior to my current role, I worked as a Senior Data Analyst at DEF Corporation, where I led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
-            st.write("Feel free to contact me at jane.doe@gmail.com.")
+            st.write("I have a track record of delivering impactful projects, such as developing a predictive model to forecast frauduelent transaction, creating an NLP model to classify customer support tickets, and building a dashboard to monitor key business metrics.")
+            st.write("In my free time, I enjoy attending data science conferences, reading technical papers, and participating in online coding communities and building small fun projects")
+            st.write("Prior to my current role, I worked as a Senior Data Analyst at Digikull Corporation, where I led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
+            st.write("Feel free to contact me at sachin19566@gmail.com.")
 
-        # Add separator
-        st.write("---")
         # Add skills
-        if st.button('Skills'):
+        if radio_choice == 'Skills':
             st.write("Skills:")
             st.write("- Programming languages: Python, R, SQL")
-            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, PyTorch, Pandas, NumPy, Matplotlib, Seaborn")
+            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Matplotlib, Seaborn")
             st.write("- Data analysis: Exploratory data analysis, feature engineering, data cleaning")
             st.write("- Machine learning: Supervised and unsupervised learning, model evaluation, hyperparameter tuning")
             st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
@@ -173,23 +173,31 @@ def main():
             st.write("- Big data technologies: Hadoop, Spark")
             st.write("- Cloud platforms: AWS, GCP") 
 
-        # Add separator
-        st.write("---")
-        if st.button('Experience'):
+        if radio_choice == 'Experience':
         # Add previous experience
             st.write("Previous Experience:")
-            st.write("- Data Scientist, ABC Company (2019 - present): Responsible for developing predictive models to improve customer retention and optimize marketing campaigns.")
-            st.write("- Senior Data Analyst, DEF Corporation (2017 - 2019): Led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
-            st.write("- Data Analyst, GHI Industries (2015 - 2017): Conducted data analysis to support business decisions and improve operational efficiency.")
+            st.write("- Data Scientist, Data Society (2022 - present): Responsible for developing Corporate training in R and Python for professionals. Worked on Tableau & Other Machine Learning Projects as well to improve customer retention and optimize customer satisfaction.")
+            st.write("- Senior Data Analyst Mentor, Digikull (2022 - present): Led a team of analysts and worked on various technical training projects, such as Statistics,SQL, Tableau, Python & Machine Learning")
+            st.write("- Data Science Intern, Ineuron (2021 - 2022): Conducted data analysis to support business decisions and improve operational efficiency.")
 
-        # Add separator
-        st.write("---")
-        if st.button('Education'):
+        if radio_choice == 'Education':
+            st.write("Bachelor's of Engineering")
             st.dataframe(df)
             fig = px.line(x=df['Semester'], y=df['CGPI'], color=px.Constant("Line chart"),
                 labels=dict(x="Semesters", y="CGPI", color="Time Period"))
             fig.add_bar(x=df['Semester'], y=df['CGPI'], name="Bar chart")
             st.plotly_chart(fig, use_container_width=True)
+            st.write("---")
+            st.write("Higher Secondary Education")
+            st.dataframe(df1)
+            fig = px.line(x=df1['Subject'], y=df1['Marks'], color=px.Constant("Line chart"),
+                labels=dict(x="Subject", y="Marks", color="Time Period"))
+            fig.add_bar(x=df1['Subject'], y=df1['Marks'], name="Bar chart")
+            st.plotly_chart(fig, use_container_width=True)
+
+        if radio_choice == 'Download_Resume':
+            with open('./Assets/Resume.pdf', 'rb') as f:
+                st.download_button('Download Resume',f, 'Sachin_Mishra_Resume.pdf')
 
 if __name__ == '__main__':
     main()
