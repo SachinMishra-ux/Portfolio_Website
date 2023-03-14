@@ -3,6 +3,7 @@ import streamlit as st
 import plotly.express as px
 from PIL import Image
 import webbrowser
+import sqlite3
 
 df= pd.read_csv("Marks.csv")
 
@@ -11,7 +12,6 @@ def main():
         page_title="Data Scientist Portfolio",
         page_icon=":bar_chart:",
         layout="wide",
-        initial_sidebar_state="collapsed"
     )
     github, linkedin,twitter = st.columns(3)
     github.markdown("[![Foo](https://img.icons8.com/material-outlined/96/000000/github.png)](https://github.com/mludwig137/gini-microloan-recommender-system)")
@@ -40,8 +40,31 @@ def main():
     choice = st.sidebar.selectbox("Select an option", menu)
 
     if choice == "Home":
-        st.title("Home Page")
-        st.write("Welcome to my portfolio!")
+        portion1,portion2= st.columns(2)
+        avatar = Image.open('./Assets/final.png')
+        portion1.image(avatar, caption="Sachin Mishra, A curious Data Scientist")
+        st.write("---")
+        
+        form = portion2.form(key='my-form')
+        name = form.text_input('Enter your name')
+        email = form.text_input('Enter your mail')
+        subject = form.text_input('Enter Subject')
+        message = form.text_input('Purpose of Contact')
+        submit = form.form_submit_button('Submit')
+
+        if submit:
+            # Connect to the database (create a new file if it doesn't exist)
+            conn = sqlite3.connect('formdata.db')
+            # Create a cursor object to execute SQL commands
+            c = conn.cursor()
+            # Insert the data into the database
+            c.execute('INSERT INTO form_data (name, email, subject, message) VALUES (?, ?, ?, ?)', (name, email, subject,message))
+            # Commit the transaction (save the changes to the database)
+            conn.commit()
+
+            # Close the connection
+            conn.close()
+            portion2.write("Success!!")
 
     elif choice == "Projects":
         st.title("Projects Page")
@@ -52,36 +75,36 @@ def main():
         st.write('You selected:', option)
         if option == 'Python-Projects':
             p1, p2 = st.columns(2)
-            image3 = Image.open('./Assets/3.png')
-            image2 = Image.open('./Assets/2.png')
-            p1.image(image2, caption='Youtube Video Downloader')
-            p2.image(image3, caption='locdata PYPI package')
+            youtube_img = Image.open('./Assets/youtube.png')
+            pypi_img = Image.open('./Assets/pypi.png')
+            p1.image(youtube_img, caption='Youtube Video Downloader')
+            p2.image(pypi_img, caption='locdata PYPI package')
             if p1.button('Check-Project'):
                 webbrowser.open_new_tab("https://youtubevideo.streamlit.app/")
             if p2.button('CheckProject'):
-                webbrowser.open_new_tab("https://youtubevideo.streamlit.app/")
+                webbrowser.open_new_tab("https://sachinmishra-ux.github.io/locdataMAC/")
 
         if option == 'Machine-Learning-Projects':
             p1, p2 = st.columns(2)
-            image4 = Image.open('./Assets/4.png')
-            image1 = Image.open('./Assets/2.png')
-            p1.image(image4, caption='AutoML Webapp')
-            p2.image(image1, caption='Bangalore House Price Prediction')
+            house_img = Image.open('./Assets/house.png')
+            automl_img = Image.open('./Assets/automl.png')
+            p1.image(automl_img, caption='AutoML Webapp')
+            p2.image(house_img, caption='Bangalore House Price Prediction')
             if p1.button('Check-Project'):
                 webbrowser.open_new_tab("https://automaticml.streamlit.app/")
             if p2.button('CheckProject'):
-                webbrowser.open_new_tab()
+                webbrowser.open_new_tab("https://bangalore.streamlit.app/")
 
         if option == 'Deep-Learning-Projects':
             p1, p2 = st.columns(2)
-            image4 = Image.open('./Assets/4.png')
+            cat_img = Image.open('./Assets/cat.png')
             image1 = Image.open('./Assets/2.png')
-            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
+            p1.image(cat_img, caption='Pet-Image Classification using Transfer Learning Approach')
             p2.image(image1, caption='Bangalore House Price Prediction')
             if p1.button('Check-Project'):
                 webbrowser.open_new_tab("https://automaticml.streamlit.app/")
             if p2.button('CheckProject'):
-                webbrowser.open_new_tab()
+                webbrowser.open_new_tab("https://bangalore.streamlit.app/")
         
         if option == 'Tableau-Projects':
             p1, p2 = st.columns(2)
