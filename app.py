@@ -23,7 +23,7 @@ def main():
     st.markdown("""
         <style>
             .main {
-                background-color: #cb65f0;
+                background-color: #eb3b6f;
             }
             .sidebar .sidebar-content {
                 background-color: #d3d3d3;
