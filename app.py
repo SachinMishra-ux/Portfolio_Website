@@ -4,6 +4,9 @@ import plotly.express as px
 from PIL import Image
 import webbrowser
 import sqlite3
+import os
+import base64
+
 
 df= pd.read_csv("Marks.csv")
 df1= pd.read_csv('Higher_secondary.csv')
@@ -15,16 +18,32 @@ def main():
         page_icon=":bar_chart:",
         layout="wide",
     )
+
+    def get_base64_of_bin_file(bin_file):
+        with open(bin_file, 'rb') as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+
+    def get_img_with_href(local_img_path, target_url):
+        img_format = os.path.splitext(local_img_path)[-1].replace('.', '')
+        bin_str = get_base64_of_bin_file(local_img_path)
+        html_code = f'''
+            <a href="{target_url}">
+                <img src="data:image/{img_format};base64,{bin_str}" />
+            </a>'''
+        return html_code
+
+
     github, linkedin,twitter = st.columns(3)
-    github.markdown("[![Foo](https://img.icons8.com/material-outlined/96/000000/github.png)](https://github.com/mludwig137/gini-microloan-recommender-system)")
-    linkedin.markdown("[![Foo](https://img.icons8.com/material-outlined/96/000000/github.png)](https://github.com/mludwig137/gini-microloan-recommender-system)")
-    twitter.markdown("[![Foo](https://img.icons8.com/material-outlined/96/000000/github.png)](https://github.com/mludwig137/gini-microloan-recommender-system)")
+    gif_html = get_img_with_href('./Assets/github.png', 'https://github.com/SachinMishra-ux')
+    github.markdown(gif_html, unsafe_allow_html=True)
+    gif_html1 = get_img_with_href('./Assets/linkedin.png', 'https://www.linkedin.com/in/sachin-mishra19566/')
+    linkedin.markdown(gif_html1, unsafe_allow_html=True)
+    gif_html2 = get_img_with_href('./Assets/twitter.png', 'https://twitter.com/tkwtk1')
+    twitter.markdown(gif_html2, unsafe_allow_html=True)
     # Add CSS styles
     st.markdown("""
         <style>
-            .main {
-                background-color: #f7f420;
-            }
             .sidebar .sidebar-content {
                 background-color: #d3d3d3;
             }
@@ -54,23 +73,25 @@ def main():
         submit = form.form_submit_button('Submit')
 
         if submit:
-            # Connect to the database (create a new file if it doesn't exist)
-            conn = sqlite3.connect('formdata.db')
-            # Create a cursor object to execute SQL commands
-            c = conn.cursor()
-            # Insert the data into the database
-            c.execute('INSERT INTO form_data (name, email, subject, message) VALUES (?, ?, ?, ?)', (name, email, subject,message))
-            # Commit the transaction (save the changes to the database)
-            conn.commit()
+            if name and email and subject and message is not None:
+                # Connect to the database (create a new file if it doesn't exist)
+                conn = sqlite3.connect('formdata.db')
+                # Create a cursor object to execute SQL commands
+                c = conn.cursor()
+                # Insert the data into the database
+                c.execute('INSERT INTO form_data (name, email, subject, message) VALUES (?, ?, ?, ?)', (name, email, subject,message))
+                # Commit the transaction (save the changes to the database)
+                conn.commit()
 
-            # Close the connection
-            conn.close()
-            portion2.write("Success!!")
+                # Close the connection
+                conn.close()
+                portion2.write("Success! Will reach you soon!")
+            else:
+                portion2.write("Please fill all the information!")
 
     elif choice == "Projects":
         st.title("Projects Page")
-        option = st.selectbox(
-        'How would you like to be contacted?',
+        option = st.selectbox( 'Select-Project-Type',
         ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning_Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects'))
 
         st.write('You selected:', option)
@@ -109,9 +130,11 @@ def main():
         
         if option == 'Tableau-Projects':
             p1, p2 = st.columns(2)
-            image4 = Image.open('./Assets/4.png')
-            image1 = Image.open('./Assets/2.png')
-            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
+            video_file = open('./Assets/Tableau_Video.mp4', 'rb')
+            video_bytes = video_file.read()
+
+            p1.video(video_bytes)
+            image1 = Image.open('./Assets/cat.png')
             p2.image(image1, caption='Bangalore House Price Prediction')
             if p1.button('Check-Project'):
                 webbrowser.open_new_tab("https://automaticml.streamlit.app/")
