@@ -105,7 +105,7 @@ def main():
             p2.image(pypi_img, caption='locdata PYPI package')
             if p1.button('Check-Project'):
                 if platform.system() == 'Darwin' or 'Windows':
-                    webbrowser.open_new_tab("https://youtubevideo.streamlit.app/")
+                    webbrowser.open("https://youtubevideo.streamlit.app/")
             if p2.button('CheckProject'):
                 webbrowser.open_new_tab("https://sachinmishra-ux.github.io/locdataMAC/")
 
