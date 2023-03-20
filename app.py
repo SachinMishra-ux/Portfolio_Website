@@ -92,7 +92,7 @@ def main():
     elif choice == "Projects":
         st.title("Projects Page")
         option = st.selectbox( 'Select-Project-Type',
-        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning_Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects'))
+        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects'))
 
         st.write('You selected:', option)
         if option == 'Python-Projects':
@@ -120,9 +120,9 @@ def main():
         if option == 'Deep-Learning-Projects':
             p1, p2 = st.columns(2)
             cat_img = Image.open('./Assets/cat.png')
-            image1 = Image.open('./Assets/2.png')
+            bangalore = Image.open('./Assets/house.png')
             p1.image(cat_img, caption='Pet-Image Classification using Transfer Learning Approach')
-            p2.image(image1, caption='Bangalore House Price Prediction')
+            p2.image(bangalore, caption='Bangalore House Price Prediction')
             if p1.button('Check-Project'):
                 webbrowser.open_new_tab("https://automaticml.streamlit.app/")
             if p2.button('CheckProject'):
