@@ -10,7 +10,13 @@ import platform
 # Import the following modules
 import requests
 import json
+import yaml
 
+# load yml file to dictionary
+credentials = yaml.load(open('./credentials.yml'))
+
+# access values from dictionary
+api_key = credentials['api']['apikey']
 
 
 df= pd.read_csv("Marks.csv")
@@ -45,7 +51,7 @@ def main():
     
     def pushbullet_noti(title, body):
     
-        TOKEN = PUSHBULLET_API  # Pass your Access Token here
+        TOKEN = api_key  # Pass your Access Token here
         # Make a dictionary that includes, title and body
         msg = {"type": "note", "title": title, "body": body}
         # Sent a posts request
