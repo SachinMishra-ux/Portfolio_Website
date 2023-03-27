@@ -13,7 +13,7 @@ import json
 import yaml
 
 # load yml file to dictionary
-credentials = yaml.load(open('./credentials.yml'))
+credentials = yaml.full_load(open('./credentials.yml'))
 
 # access values from dictionary
 api_key = credentials['api']['apikey']
