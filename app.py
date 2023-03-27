@@ -10,14 +10,9 @@ import platform
 # Import the following modules
 import requests
 import json
-import yaml
-
-# load yml file to dictionary
-credentials = yaml.full_load(open('./credentials.yml'))
 
 # access values from dictionary
-api_key = credentials['api']['apikey']
-
+api_key = st.secrets["api_key"]
 
 df= pd.read_csv("Marks.csv")
 df1= pd.read_csv('Higher_secondary.csv')

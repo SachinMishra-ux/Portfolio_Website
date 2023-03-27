@@ -1,5 +1,4 @@
 pandas
 streamlit
 plotly
-PyYAML
 pushbullet.py
