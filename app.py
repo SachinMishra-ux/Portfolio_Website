@@ -7,6 +7,9 @@ import sqlite3
 import os
 import base64
 import platform
+# Import the following modules
+import requests
+import json
 
 
 
@@ -34,7 +37,27 @@ def main():
                 <img src="data:image/{img_format};base64,{bin_str}" />
             </a>'''
         return html_code
+    
 
+ 
+    # Function to send Push Notification
+    
+    
+    def pushbullet_noti(title, body):
+    
+        TOKEN = 'o.iWpCF5YUOnRQptu222OYh4XYzz7yIn31'  # Pass your Access Token here
+        # Make a dictionary that includes, title and body
+        msg = {"type": "note", "title": title, "body": body}
+        # Sent a posts request
+        resp = requests.post('https://api.pushbullet.com/v2/pushes',
+                            data=json.dumps(msg),
+                            headers={'Authorization': 'Bearer ' + TOKEN,
+                                    'Content-Type': 'application/json'})
+        if resp.status_code != 200:  # Check if fort message send with the help of status code
+            raise Exception('Error', resp.status_code)
+        else:
+            print('Message sent')
+    
 
     github, linkedin,twitter = st.columns(3)
     gif_html = get_img_with_href('./Assets/github.png', 'https://github.com/SachinMishra-ux')
@@ -67,7 +90,7 @@ def main():
         avatar = Image.open('./Assets/final.png')
         portion1.image(avatar, caption="Sachin Mishra, A curious Data Scientist")
         st.write("---")
-        form = portion2.form(key='my-form')
+        form = portion2.form(key='my-form',clear_on_submit=True)
         name = form.text_input('Enter your name')
         email = form.text_input('Enter your mail')
         subject = form.text_input('Enter Subject')
@@ -88,6 +111,7 @@ def main():
                 # Close the connection
                 conn.close()
                 portion2.write("Success! Will reach you soon!")
+                pushbullet_noti(name,subject)
             else:
                 portion2.write("Please fill all the information!")
 
@@ -98,27 +122,19 @@ def main():
 
         st.write('You selected:', option)
         if option == 'Python-Projects':
-            p1, p2 = st.columns(2)
-            youtube_img = Image.open('./Assets/youtube.png')
-            pypi_img = Image.open('./Assets/pypi.png')
-            p1.image(youtube_img, caption='Youtube Video Downloader')
-            p2.image(pypi_img, caption='locdata PYPI package')
-            if p1.button('Check-Project'):
-                if platform.system() == 'Darwin' or 'Windows':
-                    webbrowser.open("https://youtubevideo.streamlit.app/")
-            if p2.button('CheckProject'):
-                webbrowser.open_new_tab("https://sachinmishra-ux.github.io/locdataMAC/")
+            #p1, p2 = st.columns(2)
+            youtube_img = get_img_with_href('./Assets/youtube.png', 'https://youtubevideo.streamlit.app/')
+            st.markdown(youtube_img, unsafe_allow_html=True)
+            st.write("--------")
+            pypi_img = get_img_with_href('./Assets/pypi.png', 'https://sachinmishra-ux.github.io/locdataMAC/')
+            st.markdown(pypi_img, unsafe_allow_html=True)
 
         if option == 'Machine-Learning-Projects':
             p1, p2 = st.columns(2)
-            house_img = Image.open('./Assets/house.png')
-            automl_img = Image.open('./Assets/automl.png')
-            p1.image(automl_img, caption='AutoML Webapp')
-            p2.image(house_img, caption='Bangalore House Price Prediction')
-            if p1.button('Check-Project'):
-                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
-            if p2.button('CheckProject'):
-                webbrowser.open_new_tab("https://bangalore.streamlit.app/")
+            house_img = get_img_with_href('./Assets/house.png', 'https://bangalore.streamlit.app/')
+            p1.markdown(house_img, unsafe_allow_html=True)
+            automl_img = get_img_with_href('./Assets/automl.png', 'https://automaticml.streamlit.app/')
+            p2.markdown(automl_img, unsafe_allow_html=True)
 
         if option == 'Deep-Learning-Projects':
             p1, p2 = st.columns(2)
@@ -175,11 +191,11 @@ def main():
             st.write("My expertise includes:")
             st.write("- Exploratory data analysis")
             st.write("- Feature engineering")
-            st.write("- Machine learning modeling and evaluation")
             st.write("- Data visualization")
             st.write("- Deep learning")
             st.write("- Natural language processing")
             st.write("- Time series analysis")
+            st.write("- End to end Machine learning modeling and evaluation i.e MLOP's")
             st.write("I have experience working with a variety of data types, including structured and unstructured data, and have worked with both small and large datasets.")
             st.write("I have a track record of delivering impactful projects, such as developing a predictive model to forecast frauduelent transaction, creating an NLP model to classify customer support tickets, and building a dashboard to monitor key business metrics.")
             st.write("In my free time, I enjoy attending data science conferences, reading technical papers, and participating in online coding communities and building small fun projects")
@@ -189,12 +205,12 @@ def main():
         # Add skills
         if radio_choice == 'Skills':
             st.write("Skills:")
-            st.write("- Programming languages: Python, R, SQL")
-            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Matplotlib, Seaborn")
+            st.write("- Programming languages: Python, R,C,SQL")
+            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernates(Basics)")
             st.write("- Data analysis: Exploratory data analysis, feature engineering, data cleaning")
-            st.write("- Machine learning: Supervised and unsupervised learning, model evaluation, hyperparameter tuning")
+            st.write("- Machine learning: Supervised and Unsupervised learning, model evaluation, hyperparameter tuning")
             st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
-            st.write("- Natural language processing: Text classification, sentiment analysis, topic modeling")
+            st.write("- Natural language processing: Text classification, Sentiment Analysis,Emotion Detection, topic modeling")
             st.write("- Data visualization: Matplotlib, Seaborn, Altair")
             st.write("- Big data technologies: Hadoop, Spark")
             st.write("- Cloud platforms: AWS, GCP") 
