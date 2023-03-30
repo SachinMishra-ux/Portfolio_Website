@@ -6,7 +6,6 @@ import webbrowser
 import sqlite3
 import os
 import base64
-import platform
 # Import the following modules
 import requests
 import json
@@ -44,7 +43,7 @@ def main():
     # Function to send Push Notification
     
     
-    def pushbullet_noti(title, body):
+    def pushbullet_noti(title,body):
     
         TOKEN = api_key  # Pass your Access Token here
         # Make a dictionary that includes, title and body
@@ -57,9 +56,9 @@ def main():
         if resp.status_code != 200:  # Check if fort message send with the help of status code
             raise Exception('Error', resp.status_code)
         else:
-            print('Message sent')
+            pass
     
-
+    st.title("Hello there 👋, Welcome to my portfolio!")
     github, linkedin,twitter = st.columns(3)
     gif_html = get_img_with_href('./Assets/github.png', 'https://github.com/SachinMishra-ux')
     github.markdown(gif_html, unsafe_allow_html=True)
@@ -90,8 +89,14 @@ def main():
         portion1,portion2= st.columns(2)
         avatar = Image.open('./Assets/final.png')
         portion1.image(avatar, caption="Sachin Mishra, A curious Data Scientist")
-        st.write("---")
-        form = portion2.form(key='my-form',clear_on_submit=True)
+        with portion2.expander("Click Me! 👈"):
+            st.write("- Hi, 🙋‍♂️ I'm Sachin Mishra, a curious data scientist based in India with over 2 years of experience in the field.")
+            st.write("- I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
+            st.write("- I also have knowledge in Deep learning,Computer Vision and NLP")
+            st.write("- For more info please check my About and Project pages as well !")
+            st.write("- Fun fact:🙃 I can read your mind through mentalism, want to know more, Let connect!")
+        st.write("Lets get in touch. Send me a message:")
+        form = st.form(key='my-form',clear_on_submit=True)
         name = form.text_input('Enter your name')
         email = form.text_input('Enter your mail')
         subject = form.text_input('Enter Subject')
@@ -99,7 +104,7 @@ def main():
         submit = form.form_submit_button('Submit')
 
         if submit:
-            if name and email and subject and message is not None:
+            if len(name)>3 and len(email)>12 and len(subject)>5 and len(message)>10:
                 # Connect to the database (create a new file if it doesn't exist)
                 conn = sqlite3.connect('formdata.db')
                 # Create a cursor object to execute SQL commands
@@ -111,10 +116,12 @@ def main():
 
                 # Close the connection
                 conn.close()
-                portion2.write("Success! Will reach you soon!")
+                st.success('Success! Will reach you soon!')
+                st.balloons()
                 pushbullet_noti(name,subject)
+
             else:
-                portion2.write("Please fill all the information!")
+                st.warning("Please fill appropriate information!", icon="⚠️")
 
     elif choice == "Projects":
         st.title("Projects Page")
@@ -188,7 +195,7 @@ def main():
         radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
         if radio_choice == 'About Me':
             st.title("About Me")
-            st.write("Hi, I'm Sachin Mishra, a curious data scientist based in Bangalore with over 2 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
+            st.write("Hi, I'm Sachin Mishra, a curious data scientist based in India with over 2 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
             st.write("My expertise includes:")
             st.write("- Exploratory data analysis")
             st.write("- Feature engineering")
