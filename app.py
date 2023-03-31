@@ -130,66 +130,44 @@ def main():
 
         st.write('You selected:', option)
         if option == 'Python-Projects':
-            #p1, p2 = st.columns(2)
-            youtube_img = get_img_with_href('./Assets/youtube.png', 'https://youtubevideo.streamlit.app/')
+            youtube_img = get_img_with_href('./Assets/youtube.jpeg', 'https://youtubevideo.streamlit.app/')
             st.markdown(youtube_img, unsafe_allow_html=True)
             st.write("--------")
-            pypi_img = get_img_with_href('./Assets/pypi.png', 'https://sachinmishra-ux.github.io/locdataMAC/')
+            pypi_img = get_img_with_href('./Assets/pypi.jpeg', 'https://sachinmishra-ux.github.io/locdataMAC/')
             st.markdown(pypi_img, unsafe_allow_html=True)
 
         if option == 'Machine-Learning-Projects':
-            p1, p2 = st.columns(2)
             house_img = get_img_with_href('./Assets/house.png', 'https://bangalore.streamlit.app/')
-            p1.markdown(house_img, unsafe_allow_html=True)
-            automl_img = get_img_with_href('./Assets/automl.png', 'https://automaticml.streamlit.app/')
-            p2.markdown(automl_img, unsafe_allow_html=True)
+            st.markdown(house_img, unsafe_allow_html=True)
+            st.write("--------")
+            automl_img = get_img_with_href('./Assets/Slide_4_2.jpeg', 'https://automaticml.streamlit.app/')
+            st.markdown(automl_img, unsafe_allow_html=True)
 
         if option == 'Deep-Learning-Projects':
-            p1, p2 = st.columns(2)
-            cat_img = Image.open('./Assets/cat.png')
-            bangalore = Image.open('./Assets/house.png')
-            p1.image(cat_img, caption='Pet-Image Classification using Transfer Learning Approach')
-            p2.image(bangalore, caption='Bangalore House Price Prediction')
-            if p1.button('Check-Project'):
-                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
-            if p2.button('CheckProject'):
-                webbrowser.open_new_tab("https://bangalore.streamlit.app/")
-        
+            cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
+            st.markdown(cat_img, unsafe_allow_html=True)
+            st.write("--------")
+            automl_img = get_img_with_href('./Assets/house.png', 'https://automaticml.streamlit.app/')
+            st.markdown(automl_img, unsafe_allow_html=True)
+
         if option == 'Tableau-Projects':
-            p1, p2 = st.columns(2)
             video_file = open('./Assets/Tableau_Video.mp4', 'rb')
             video_bytes = video_file.read()
+            st.video(video_bytes)
 
-            p1.video(video_bytes)
-            image1 = Image.open('./Assets/cat.png')
-            p2.image(image1, caption='Bangalore House Price Prediction')
-            if p1.button('Check-Project'):
-                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
-            if p2.button('CheckProject'):
-                webbrowser.open_new_tab()
-        
         if option == 'Computer-Vision-Projects':
-            p1, p2 = st.columns(2)
-            image4 = Image.open('./Assets/4.png')
-            image1 = Image.open('./Assets/2.png')
-            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
-            p2.image(image1, caption='Bangalore House Price Prediction')
-            if p1.button('Check-Project'):
-                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
-            if p2.button('CheckProject'):
-                webbrowser.open_new_tab()
+            cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
+            st.markdown(cat_img, unsafe_allow_html=True)
+            st.write("--------")
+            automl_img = get_img_with_href('./Assets/house.png', 'https://automaticml.streamlit.app/')
+            st.markdown(automl_img, unsafe_allow_html=True)
         
         if option == 'NLP-Projects':
-            p1, p2 = st.columns(2)
-            image4 = Image.open('./Assets/4.png')
-            image1 = Image.open('./Assets/2.png')
-            p1.image(image4, caption='Pet-Image Classification using Transfer Learning Approach')
-            p2.image(image1, caption='Bangalore House Price Prediction')
-            if p1.button('Check-Project'):
-                webbrowser.open_new_tab("https://automaticml.streamlit.app/")
-            if p2.button('CheckProject'):
-                webbrowser.open_new_tab()
-
+            cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
+            st.markdown(cat_img, unsafe_allow_html=True)
+            st.write("--------")
+            automl_img = get_img_with_href('./Assets/house.png', 'https://automaticml.streamlit.app/')
+            st.markdown(automl_img, unsafe_allow_html=True)
 
     elif choice == "About":
         radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
