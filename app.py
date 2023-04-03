@@ -66,6 +66,7 @@ def main():
     linkedin.markdown(gif_html1, unsafe_allow_html=True)
     gif_html2 = get_img_with_href('./Assets/twitter.png', 'https://twitter.com/tkwtk1')
     twitter.markdown(gif_html2, unsafe_allow_html=True)
+    
     # Add CSS styles
     st.markdown("""
         <style>
@@ -95,8 +96,7 @@ def main():
             st.write("- I also have knowledge in Deep learning,Computer Vision and NLP")
             st.write("- For more info please check my About and Project pages as well !")
             st.write("- Fun fact:🙃 I can read your mind through mentalism, want to know more, Let's connect!")
-            st.write("- You will choose King of heart!")
-        st.write("Lets get in touch. Send me a message:")
+        st.write("Let's get in touch. Send me a message:")
         form = st.form(key='my-form',clear_on_submit=True)
         name = form.text_input('Enter your name')
         email = form.text_input('Enter your mail')
@@ -133,22 +133,27 @@ def main():
         if option == 'Python-Projects':
             youtube_img = get_img_with_href('./Assets/youtube.jpeg', 'https://youtubevideo.streamlit.app/')
             st.markdown(youtube_img, unsafe_allow_html=True)
+            st.write("YouTube Video downloader")
             st.write("--------")
             pypi_img = get_img_with_href('./Assets/pypi.jpeg', 'https://sachinmishra-ux.github.io/locdataMAC/')
             st.markdown(pypi_img, unsafe_allow_html=True)
+            st.write("locdataMAC pypi package")
 
         if option == 'Machine-Learning-Projects':
-            house_img = get_img_with_href('./Assets/house.png', 'https://bangalore.streamlit.app/')
+            house_img = get_img_with_href('./Assets/House_1.jpeg', 'https://bangalore.streamlit.app/')
             st.markdown(house_img, unsafe_allow_html=True)
+            st.write("Bangalore House Price Prediction")
             st.write("--------")
             automl_img = get_img_with_href('./Assets/Slide_4_2.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
+            st.write("Automl regression & classification")
 
         if option == 'Deep-Learning-Projects':
-            cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
+            cat_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://bangalore.streamlit.app/')
             st.markdown(cat_img, unsafe_allow_html=True)
+            st.write("Pet Image classification using Deep-learning")
             st.write("--------")
-            automl_img = get_img_with_href('./Assets/house.png', 'https://automaticml.streamlit.app/')
+            automl_img = get_img_with_href('./Assets/House_1.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
 
         if option == 'Tableau-Projects':
@@ -160,15 +165,16 @@ def main():
             cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
             st.markdown(cat_img, unsafe_allow_html=True)
             st.write("--------")
-            automl_img = get_img_with_href('./Assets/house.png', 'https://automaticml.streamlit.app/')
+            automl_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
         
         if option == 'NLP-Projects':
-            cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
-            st.markdown(cat_img, unsafe_allow_html=True)
-            st.write("--------")
-            automl_img = get_img_with_href('./Assets/house.png', 'https://automaticml.streamlit.app/')
+            #cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
+            #st.markdown(cat_img, unsafe_allow_html=True)
+            #st.write("--------")
+            automl_img = get_img_with_href('./Assets/Slide_4_2.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
+            st.write("NLP emotion detection in sentences.")
 
     elif choice == "About":
         radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
