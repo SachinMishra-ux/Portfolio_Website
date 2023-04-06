@@ -96,6 +96,7 @@ def main():
             st.write("- I also have knowledge in Deep learning,Computer Vision and NLP")
             st.write("- For more info please check my About and Project pages as well !")
             st.write("- Fun fact:🙃 I can read your mind through mentalism, want to know more, Let's connect!")
+            st.write("- You will choose Ace of Heart 🙃 ") 
         st.write("Let's get in touch. Send me a message:")
         form = st.form(key='my-form',clear_on_submit=True)
         name = form.text_input('Enter your name')
