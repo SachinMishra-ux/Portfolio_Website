@@ -127,7 +127,7 @@ def main():
     elif choice == "Projects":
         st.title("Projects Page")
         option = st.selectbox( 'Select-Project-Type',
-        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects'))
+        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects','Other-Projects'))
 
         st.write('You selected:', option)
         if option == 'Python-Projects':
