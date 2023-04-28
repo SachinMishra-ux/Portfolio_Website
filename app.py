@@ -96,7 +96,6 @@ def main():
             st.write("- I also have knowledge in Deep learning,Computer Vision and NLP")
             st.write("- For more info please check my About and Project pages as well !")
             st.write("- Fun fact:🙃 I can read your mind through mentalism, want to know more, Let's connect!")
-            st.write("- You will choose Ace of Heart 🙃 ") 
         st.write("Let's get in touch. Send me a message:")
         form = st.form(key='my-form',clear_on_submit=True)
         name = form.text_input('Enter your name')
@@ -176,6 +175,11 @@ def main():
             automl_img = get_img_with_href('./Assets/Slide_4_2.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
             st.write("NLP emotion detection in sentences.")
+        
+        if option == 'Other-Projects':
+            airflow_img = get_img_with_href('./Assets/Apache_Airflow.jpeg', 'https://automaticml.streamlit.app/')
+            st.markdown(airflow_img, unsafe_allow_html=True)
+            st.write("Apache Airflow simple project.")
 
     elif choice == "About":
         radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
@@ -200,7 +204,7 @@ def main():
         if radio_choice == 'Skills':
             st.write("Skills:")
             st.write("- Programming languages: Python, R,C,SQL")
-            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernates(Basics)")
+            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernates(Basics), Apache Airflow(Basics)")
             st.write("- Data analysis: Exploratory data analysis, feature engineering, data cleaning")
             st.write("- Machine learning: Supervised and Unsupervised learning, model evaluation, hyperparameter tuning")
             st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
