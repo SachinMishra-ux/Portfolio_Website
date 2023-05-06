@@ -162,18 +162,13 @@ def main():
             st.video(video_bytes)
 
         if option == 'Computer-Vision-Projects':
-            cat_img = get_img_with_href('./Assets/mask-aadhaarcard.png', 'https://bangalore.streamlit.app/')
-            st.markdown(cat_img, unsafe_allow_html=True)
-            st.write("--------")
-            automl_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://github.com/SachinMishra-ux/Aadhar_Card_Masking')
-            st.markdown(automl_img, unsafe_allow_html=True)
+            aadhar_img = get_img_with_href('./Assets/mask-aadhaarcard.png', 'https://github.com/SachinMishra-ux/Aadhar_Card_Masking')
+            st.markdown(aadhar_img, unsafe_allow_html=True)
+            st.write("Aadhar Card Masking")
         
         if option == 'NLP-Projects':
-            #cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
-            #st.markdown(cat_img, unsafe_allow_html=True)
-            #st.write("--------")
-            automl_img = get_img_with_href('./Assets/Slide_4_2.jpeg', 'https://automaticml.streamlit.app/')
-            st.markdown(automl_img, unsafe_allow_html=True)
+            nlp_img = get_img_with_href('./Assets/EmotionClf-End2End.png', 'https://emotiondetection.streamlit.app/')
+            st.markdown(nlp_img, unsafe_allow_html=True)
             st.write("NLP emotion detection in sentences.")
         
         if option == 'Other-Projects':
