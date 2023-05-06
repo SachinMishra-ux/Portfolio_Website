@@ -177,7 +177,7 @@ def main():
             st.write("NLP emotion detection in sentences.")
         
         if option == 'Other-Projects':
-            airflow_img = get_img_with_href('./Assets/Apache_Airflow.jpeg', 'https://automaticml.streamlit.app/')
+            airflow_img = get_img_with_href('./Assets/Apache_Airflow.jpeg', 'https://airflow.apache.org/')
             st.markdown(airflow_img, unsafe_allow_html=True)
             st.write("Apache Airflow simple project.")
             st.write("---")
