@@ -180,6 +180,12 @@ def main():
             airflow_img = get_img_with_href('./Assets/Apache_Airflow.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(airflow_img, unsafe_allow_html=True)
             st.write("Apache Airflow simple project.")
+            st.write("---")
+            st.write("Other Ideas I am working on")
+            st.write("- Youtube chaannel data analysis")
+            st.write("- Instagram Hashtag Analysis")
+            st.write("- Langchain Youtube Script generation tool")
+            st.write("- Earworm Application")
 
     elif choice == "About":
         radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
