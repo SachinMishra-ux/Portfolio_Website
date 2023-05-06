@@ -162,10 +162,10 @@ def main():
             st.video(video_bytes)
 
         if option == 'Computer-Vision-Projects':
-            cat_img = get_img_with_href('./Assets/cat.png', 'https://bangalore.streamlit.app/')
+            cat_img = get_img_with_href('./Assets/mask-aadhaarcard.png', 'https://bangalore.streamlit.app/')
             st.markdown(cat_img, unsafe_allow_html=True)
             st.write("--------")
-            automl_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://automaticml.streamlit.app/')
+            automl_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://github.com/SachinMishra-ux/Aadhar_Card_Masking')
             st.markdown(automl_img, unsafe_allow_html=True)
         
         if option == 'NLP-Projects':
