@@ -147,6 +147,11 @@ def main():
             automl_img = get_img_with_href('./Assets/Slide_4_2.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
             st.write("Automl regression & classification")
+            st.write("--------")
+            st.write("Credit_Score_Classification")
+            video_file = open('./Assets/Credit_class.mp4', 'rb')
+            video_bytes = video_file.read()
+            st.video(video_bytes)
 
         if option == 'Deep-Learning-Projects':
             cat_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://bangalore.streamlit.app/')
