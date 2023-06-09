@@ -98,13 +98,20 @@ def main():
             st.write("- For more info please check my About and Project pages as well !")
             st.write("- Fun fact:🙃 I can read your mind through mentalism, want to know more, Let's connect!")
         st.write("Let's get in touch. Send me a message:")
-        form = st.form(key='my-form',clear_on_submit=True)
+        form = st.form(key='my-form',clear_on_submit=False)
         name = form.text_input('Enter your name')
         email = form.text_input('Enter your mail')
         subject = form.text_input('Enter Subject')
         message = form.text_input('Purpose of Contact')
         submit = form.form_submit_button('Submit')
+        email_pattern=re.match('[a-zA-Z0-9_]*@[a-z]*\.[a-zA-Z0-9]*',email)
+        
         if submit:
+            if email_pattern:
+                if email==email_pattern.group(0):
+                    pass
+            else:
+                st.warning('wrong email!')
             if len(name)>3  and len(subject)>5 and len(message)>10 and re.match('[a-zA-Z0-9_]*@[a-z]*\.[a-zA-Z0-9]*',email):
 
                 # Connect to the database (create a new file if it doesn't exist)
