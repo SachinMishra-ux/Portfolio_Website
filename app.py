@@ -3,6 +3,7 @@ import streamlit as st
 import plotly.express as px
 from PIL import Image
 import webbrowser
+import re
 import sqlite3
 import os
 import base64
@@ -103,9 +104,9 @@ def main():
         subject = form.text_input('Enter Subject')
         message = form.text_input('Purpose of Contact')
         submit = form.form_submit_button('Submit')
-
         if submit:
-            if len(name)>3 and len(email)>12 and len(subject)>5 and len(message)>10:
+            if len(name)>3  and len(subject)>5 and len(message)>10 and re.match('[a-zA-Z0-9_]*@[a-z]*\.[a-zA-Z0-9]*',email):
+
                 # Connect to the database (create a new file if it doesn't exist)
                 conn = sqlite3.connect('formdata.db')
                 # Create a cursor object to execute SQL commands
