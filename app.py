@@ -217,19 +217,20 @@ def main():
         # Add skills
         if radio_choice == 'Skills':
             st.title("Skills:")
-            st.write("- Programming languages: Python, R,C,SQL")
-            st.write("- Database: MySQL, Mongodb")
-            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernetes(Basics), Apache Airflow(Basics)")
-            st.write("- Data analysis: Exploratory data analysis, feature engineering, data cleaning")
-            st.write("- Machine learning: Supervised and Unsupervised learning, model evaluation, hyperparameter tuning")
-            st.write("- MLOP's: AWS-Sagemaker, Docker, Kubernetes")
-            st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
-            st.write("- Natural language processing: Text classification, Sentiment Analysis,Emotion Detection, topic modeling")
-            st.write("- Data visualization: Matplotlib, Seaborn,Plotly, Altair")
-            st.write("- Frameworks: Langchain, Flask, Streamlit, FastAPI")
-            st.write("- Experiment Tracking: Mlflow, DVC, Dagshub")
-            st.write("- Big data technologies: Hadoop, Spark")
-            st.write("- Cloud platforms: AWS, GCP, Snowflake") 
+            with st.expander("Expand Me! 👈"):
+                st.write("- Programming languages: Python, R,C,SQL")
+                st.write("- Database: MySQL, Mongodb")
+                st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernetes(Basics), Apache Airflow(Basics)")
+                st.write("- Data analysis: Exploratory data analysis, feature engineering, data cleaning")
+                st.write("- Machine learning: Supervised and Unsupervised learning, model evaluation, hyperparameter tuning")
+                st.write("- MLOP's: AWS-Sagemaker, Docker, Kubernetes")
+                st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
+                st.write("- Natural language processing: Text classification, Sentiment Analysis,Emotion Detection, topic modeling")
+                st.write("- Data visualization: Matplotlib, Seaborn,Plotly, Altair")
+                st.write("- Frameworks: Langchain, Flask, Streamlit, FastAPI")
+                st.write("- Experiment Tracking: Mlflow, DVC, Dagshub")
+                st.write("- Big data technologies: Hadoop, Spark")
+                st.write("- Cloud platforms: AWS, GCP, Snowflake") 
 
         if radio_choice == 'Experience':
         # Add previous experience
