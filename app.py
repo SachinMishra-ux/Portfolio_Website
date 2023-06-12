@@ -216,22 +216,24 @@ def main():
 
         # Add skills
         if radio_choice == 'Skills':
-            st.write("Skills:")
+            st.title("Skills:")
             st.write("- Programming languages: Python, R,C,SQL")
             st.write("- Database: MySQL, Mongodb")
-            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernates(Basics), Apache Airflow(Basics)")
+            st.write("- Tools and libraries: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Docker, Kubernetes(Basics), Apache Airflow(Basics)")
             st.write("- Data analysis: Exploratory data analysis, feature engineering, data cleaning")
             st.write("- Machine learning: Supervised and Unsupervised learning, model evaluation, hyperparameter tuning")
+            st.write("- MLOP's: AWS-Sagemaker, Docker, Kubernetes")
             st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
             st.write("- Natural language processing: Text classification, Sentiment Analysis,Emotion Detection, topic modeling")
             st.write("- Data visualization: Matplotlib, Seaborn,Plotly, Altair")
-            st.write("- Frameworks: Langchain,Flask,Streamlit,FastAPI")
+            st.write("- Frameworks: Langchain, Flask, Streamlit, FastAPI")
+            st.write("- Experiment Tracking: Mlflow, DVC, Dagshub")
             st.write("- Big data technologies: Hadoop, Spark")
             st.write("- Cloud platforms: AWS, GCP, Snowflake") 
 
         if radio_choice == 'Experience':
         # Add previous experience
-            st.write("Previous Experience:")
+            st.title("Experience:")
             st.write("- Data Scientist, Data Society (2022 - present): Responsible for developing Corporate training in R and Python for professionals. Worked on Tableau & Other Machine Learning Projects as well to improve customer retention and optimize customer satisfaction.")
             st.write("- Senior Data Analyst Mentor, Digikull (2022 - present): Led a team of analysts and worked on various technical training projects, such as Statistics,SQL, Tableau, Python & Machine Learning")
             st.write("- Data Science Intern, Ineuron (2021 - 2022): Conducted data analysis to support business decisions and improve operational efficiency.")
