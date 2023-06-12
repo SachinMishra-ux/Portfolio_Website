@@ -208,11 +208,12 @@ def main():
             st.write("- Natural language processing")
             st.write("- Time series analysis")
             st.write("- End to end Machine learning modeling and evaluation i.e MLOP's")
-            st.write("I have experience working with a variety of data types, including structured and unstructured data, and have worked with both small and large datasets.")
-            st.write("I have a track record of delivering impactful projects, such as developing a predictive model to forecast frauduelent transaction, creating an NLP model to classify customer support tickets, and building a dashboard to monitor key business metrics.")
-            st.write("In my free time, I enjoy attending data science conferences, reading technical papers, and participating in online coding communities and building small fun projects")
-            st.write("Prior to my current role, I worked as a Senior Data Analyst at Digikull Corporation, where I led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
-            st.write("Feel free to contact me at sachin19566@gmail.com.")
+            with st.expander("More! 👈"):
+                st.write("I have experience working with a variety of data types, including structured and unstructured data, and have worked with both small and large datasets.")
+                st.write("I have a track record of delivering impactful projects, such as developing a predictive model to forecast frauduelent transaction, creating an NLP model to classify customer support tickets, and building a dashboard to monitor key business metrics.")
+                st.write("In my free time, I enjoy attending data science conferences, reading technical papers, and participating in online coding communities and building small fun projects")
+                st.write("Prior to my current role, I worked as a Senior Data Analyst at Digikull Corporation, where I led a team of analysts and worked on various projects, including optimizing the company's pricing strategy and developing a customer segmentation model.")
+                st.write("Feel free to contact me at sachin19566@gmail.com.")
 
         # Add skills
         if radio_choice == 'Skills':
