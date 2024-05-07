@@ -12,7 +12,7 @@ import requests
 import json
 
 # access values from dictionary
-#api_key = st.secrets["api_key"]
+api_key = st.secrets["api_key"]
 
 df= pd.read_csv("Marks.csv")
 df1= pd.read_csv('Higher_secondary.csv')
