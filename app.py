@@ -12,7 +12,7 @@ import requests
 import json
 
 # access values from dictionary
-api_key = st.secrets["api_key"]
+#api_key = st.secrets["api_key"]
 
 df= pd.read_csv("Marks.csv")
 df1= pd.read_csv('Higher_secondary.csv')
@@ -92,7 +92,7 @@ def main():
         avatar = Image.open('./Assets/final.png')
         portion1.image(avatar, caption="Sachin Mishra, A curious Data Scientist")
         with portion2.expander("Click Me! 👈"):
-            st.write("- Hi, 🙋‍♂️ I'm Sachin Mishra, a curious data scientist based in India with over 2 years of experience in the field.")
+            st.write("- Hi, 🙋‍♂️ I'm Sachin Mishra, a curious data scientist based in India with over 2.5 years of experience in the field.")
             st.write("- I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
             st.write("- I also have knowledge in Deep learning,Computer Vision and NLP")
             st.write("- For more info please check my About and Project pages as well !")
@@ -135,7 +135,7 @@ def main():
     elif choice == "Projects":
         st.title("Projects Page")
         option = st.selectbox( 'Select-Project-Type',
-        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects','Other-Projects'))
+        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','Tableau-Projects','GenAI','Other-Projects'))
 
         st.write('You selected:', option)
         if option == 'Python-Projects':
@@ -169,6 +169,16 @@ def main():
             automl_img = get_img_with_href('./Assets/House_1.jpeg', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
 
+        if option == 'GenAI':
+            cat_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://bangalore.streamlit.app/')
+            st.markdown(cat_img, unsafe_allow_html=True)
+            st.write("Youtube Personal Subscriber Video Summarization")
+            st.write("--------")
+            automl_img = get_img_with_href('./Assets/House_1.jpeg', 'https://automaticml.streamlit.app/')
+            st.markdown(automl_img, unsafe_allow_html=True)
+            st.write("Local RAG for your PDF's")
+
+
         if option == 'Tableau-Projects':
             video_file = open('./Assets/Tableau_Video.mp4', 'rb')
             video_bytes = video_file.read()
@@ -189,14 +199,14 @@ def main():
             st.markdown(airflow_img, unsafe_allow_html=True)
             st.write("Apache Airflow simple project.")
             st.write("---")
-            st.write("Other Ideas I am working on")
+            st.write("Other Ideas I am looking to collaborate with:")
             st.write("- Youtube chaannel data analysis")
             st.write("- Instagram Hashtag Analysis")
             st.write("- Langchain Youtube Script generation tool")
             st.write("- Earworm Application")
 
     elif choice == "About":
-        radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume"])
+        radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume", "YouTube"])
         if radio_choice == 'About Me':
             st.title("About Me")
             st.write("Hi, I'm Sachin Mishra, a curious data scientist based in India with over 2 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
@@ -254,10 +264,18 @@ def main():
                 labels=dict(x="Subject", y="Marks", color="Time Period"))
             fig.add_bar(x=df1['Subject'], y=df1['Marks'], name="Bar chart")
             st.plotly_chart(fig, use_container_width=True)
+            st.write("---")
+            st.write("Graph Shows I am consistent learner & hardworking candidate")
 
         if radio_choice == 'Download_Resume':
             with open('./Assets/Resume.pdf', 'rb') as f:
                 st.download_button('Download Resume',f, 'Sachin_Mishra_Resume.pdf')
+
+        
+        if radio_choice == 'YouTube':
+            youtube_channel = get_img_with_href('./Assets/youtube_channel.png', 'https://www.youtube.com/@LocData')
+            st.markdown(youtube_channel, unsafe_allow_html=True)
+            st.write("Locdata Youtube Channel")
 
 if __name__ == '__main__':
     main()
