@@ -170,7 +170,7 @@ def main():
             st.markdown(automl_img, unsafe_allow_html=True)
 
         if option == 'GenAI':
-            cat_img = get_img_with_href('./Assets/Cat_1.jpeg', 'https://bangalore.streamlit.app/')
+            cat_img = get_img_with_href('./Assets/youtube_summarization.png', 'https://bangalore.streamlit.app/')
             st.markdown(cat_img, unsafe_allow_html=True)
             st.write("Youtube Personal Subscriber Video Summarization")
             st.write("--------")
