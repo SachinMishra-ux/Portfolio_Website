@@ -12,7 +12,7 @@ import requests
 import json
 
 # access values from dictionary
-api_key = st.secrets["api_key"]
+#api_key = st.secrets["api_key"]
 
 df= pd.read_csv("Marks.csv")
 df1= pd.read_csv('Higher_secondary.csv')
@@ -273,7 +273,7 @@ def main():
 
         
         if radio_choice == 'YouTube':
-            youtube_channel = get_img_with_href('./Assets/youtube_channel.png', 'https://www.youtube.com/@LocData')
+            youtube_channel = get_img_with_href('./Assets/youtube_channel1.png', 'https://www.youtube.com/@LocData')
             st.markdown(youtube_channel, unsafe_allow_html=True)
             st.write("Locdata Youtube Channel")
 
