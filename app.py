@@ -131,7 +131,8 @@ def main():
 
             else:
                 st.warning("Please fill appropriate information!", icon="⚠️")
-
+        st.write("---")
+        st.write("You will choose Jack of Heart:❤️")
     elif choice == "Projects":
         st.title("Projects Page")
         option = st.selectbox( 'Select-Project-Type',
