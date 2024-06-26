@@ -175,7 +175,7 @@ def main():
             st.markdown(cat_img, unsafe_allow_html=True)
             st.write("Youtube Personal Subscriber Video Summarization")
             st.write("--------")
-            automl_img = get_img_with_href('./Assets/House_1.jpeg', 'https://automaticml.streamlit.app/')
+            automl_img = get_img_with_href('./Assets/RAG_workflow.png', 'https://automaticml.streamlit.app/')
             st.markdown(automl_img, unsafe_allow_html=True)
             st.write("Local RAG for your PDF's")
 
