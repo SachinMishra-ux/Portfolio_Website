@@ -181,14 +181,14 @@ def main():
 
 
         if option == 'Tableau-Projects':
-            video_file = open('./Assets/Tableau_Video.mp4', 'rb')
-            video_bytes = video_file.read()
-            st.video(video_bytes)
+            tableau_video_file = open('./Assets/Tableau_Video.mp4', 'rb')
+            tableau_video_bytes = tableau_video_file.read()
+            st.video(tableau_video_bytes)
 
         if option == 'PowerBI-Projects':
-            video_file = open('./Assets/power_bi.mp4', 'rb')
-            video_bytes = video_file.read()
-            st.video(video_bytes)
+            powerbi_video_file = open('./Assets/power_bi.mp4', 'rb')
+            powerbi_video_bytes = powerbi_video_file.read()
+            st.video(powerbi_video_bytes)
 
         if option == 'Computer-Vision-Projects':
             aadhar_img = get_img_with_href('./Assets/mask-aadhaarcard.png', 'https://github.com/SachinMishra-ux/Aadhar_Card_Masking')
