@@ -185,6 +185,11 @@ def main():
             video_bytes = video_file.read()
             st.video(video_bytes)
 
+        if option == 'PowerBI-Projects':
+            video_file = open('./Assets/power_bi.mp4', 'rb')
+            video_bytes = video_file.read()
+            st.video(video_bytes)
+
         if option == 'Computer-Vision-Projects':
             aadhar_img = get_img_with_href('./Assets/mask-aadhaarcard.png', 'https://github.com/SachinMishra-ux/Aadhar_Card_Masking')
             st.markdown(aadhar_img, unsafe_allow_html=True)
