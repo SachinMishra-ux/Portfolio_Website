@@ -136,7 +136,7 @@ def main():
     elif choice == "Projects":
         st.title("Projects Page")
         option = st.selectbox( 'Select-Project-Type',
-        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','PowerBI-Projects','Tableau-Projects','GenAI','Other-Projects'))
+        ('Python-Projects', 'Machine-Learning-Projects', 'Deep-Learning-Projects','Computer-Vision-Projects','NLP-Projects','PowerBI-Projects','Tableau-Projects','GenAI', 'Data-Engineering-Projects','Other-Projects'))
 
         st.write('You selected:', option)
         if option == 'Python-Projects':
@@ -200,11 +200,16 @@ def main():
             st.markdown(nlp_img, unsafe_allow_html=True)
             st.write("NLP emotion detection in sentences.")
         
-        if option == 'Other-Projects':
+        if option == 'Data-Engineering-Projects':
             airflow_img = get_img_with_href('./Assets/Apache_Airflow.jpeg', 'https://airflow.apache.org/')
             st.markdown(airflow_img, unsafe_allow_html=True)
             st.write("Apache Airflow simple project.")
             st.write("---")
+            youtube_architecture_img = get_img_with_href('./Assets/Youtube_architecture_diagram.PNG', 'https://airflow.apache.org/')
+            st.markdown(youtube_architecture_img, unsafe_allow_html=True)
+            st.write("Youtube Data Analysis- Engineering Project.")
+            st.write("---")
+        if option == 'Other-Projects':
             st.write("Other Ideas I am looking to collaborate with:")
             st.write("- Youtube chaannel data analysis")
             st.write("- Instagram Hashtag Analysis")
