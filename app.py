@@ -224,7 +224,7 @@ def main():
         radio_choice = st.radio("Navigation", ["About Me","Skills","Experience", "Education","Download_Resume", "YouTube"])
         if radio_choice == 'About Me':
             st.title("About Me")
-            st.write("Hi, I'm Sachin Mishra, a curious data scientist based in India with over 2 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
+            st.write("Hi, I'm Sachin Mishra, a curious data scientist based in India with over 3 years of experience in the field. I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
             st.write("My expertise includes:")
             st.write("- Exploratory data analysis")
             st.write("- Feature engineering")
@@ -252,7 +252,7 @@ def main():
                 st.write("- MLOP's: AWS-Sagemaker, Docker, Kubernetes")
                 st.write("- Deep learning: Neural networks, CNNs, RNNs, transfer learning")
                 st.write("- Natural language processing: Text classification, Sentiment Analysis,Emotion Detection, topic modeling")
-                st.write("- Data visualization: Matplotlib, Seaborn,Plotly, Altair")
+                st.write("- Data visualization: Tableau, PowerBI, Matplotlib, Seaborn,Plotly, Altair")
                 st.write("- Frameworks: Langchain, Flask, Streamlit, FastAPI")
                 st.write("- Experiment Tracking: Mlflow, DVC, Dagshub")
                 st.write("- Big data technologies: Hadoop, Spark")
@@ -262,6 +262,7 @@ def main():
         # Add previous experience
             st.title("Experience:")
             st.write("- Data Scientist, Data Society (2022 - present): Responsible for developing Corporate training in R and Python for professionals. Worked on Tableau & Other Machine Learning Projects as well to improve customer retention and optimize customer satisfaction.")
+            st.write("- Data Scientist, VoiceXp (2023-May - 2024-March) Worked on VoiceXp to automate the process of ordering food through voice using large language models and text to speech + Speech to text modules")
             st.write("- Senior Data Analyst Mentor, Digikull (2022 - present): Led a team of analysts and worked on various technical training projects, such as Statistics,SQL, Tableau, Python & Machine Learning")
             st.write("- Data Science Intern, Ineuron (2021 - 2022): Conducted data analysis to support business decisions and improve operational efficiency.")
 
