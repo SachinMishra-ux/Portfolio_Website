@@ -148,7 +148,7 @@ def main():
             st.markdown(pypi_img, unsafe_allow_html=True)
             st.write("locdataMAC pypi package")
 
-            pypi_img = get_img_with_href('./Assets/pypi.jpeg', 'https://travelapp.streamlit.app/')
+            pypi_img = get_img_with_href('./Assets/Travel.png', 'https://travelapp.streamlit.app/')
             st.markdown(pypi_img, unsafe_allow_html=True)
             st.write("Travel App")
 
