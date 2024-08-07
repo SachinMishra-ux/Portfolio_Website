@@ -148,6 +148,10 @@ def main():
             st.markdown(pypi_img, unsafe_allow_html=True)
             st.write("locdataMAC pypi package")
 
+            pypi_img = get_img_with_href('./Assets/pypi.jpeg', 'https://travelapp.streamlit.app/')
+            st.markdown(pypi_img, unsafe_allow_html=True)
+            st.write("Travel App")
+
         if option == 'Machine-Learning-Projects':
             house_img = get_img_with_href('./Assets/House_1.jpeg', 'https://bangalore.streamlit.app/')
             st.markdown(house_img, unsafe_allow_html=True)
