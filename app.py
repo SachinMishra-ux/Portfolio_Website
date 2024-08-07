@@ -92,9 +92,9 @@ def main():
         avatar = Image.open('./Assets/final.png')
         portion1.image(avatar, caption="Sachin Mishra, A curious Data Scientist")
         with portion2.expander("Click Me! 👈"):
-            st.write("- Hi, 🙋‍♂️ I'm Sachin Mishra, a curious data scientist based in India with over 2.5 years of experience in the field.")
-            st.write("- I specialize in data analysis, machine learning, and data visualization, and I have a passion for using data to solve real-world problems.")
-            st.write("- I also have knowledge in Deep learning,Computer Vision and NLP")
+            st.write("- Hi, 🙋‍♂️ I'm Sachin Mishra, a curious data scientist based in India with over 3 years of experience in the field.")
+            st.write("- I specialize in data analysis, machine learning, Deep Learning and data visualization, and I have a passion for using data to solve real-world problems.")
+            st.write("- I also have knowledge in NLP and Computer Vision")
             st.write("- For more info please check my About and Project pages as well !")
             st.write("- Fun fact:🙃 I can read your mind through mentalism, want to know more, Let's connect!")
         st.write("Let's get in touch. Send me a message:")
